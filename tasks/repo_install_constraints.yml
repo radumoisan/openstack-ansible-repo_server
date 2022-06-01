@@ -22,7 +22,7 @@
 # by default the u-c file is retrieved by https
 - name: Retrieve upper constraints using https
   get_url:
-    url: "{{ user_requirements_git_url | default('https://releases.openstack.org/constraints/upper/' ~ requirements_git_install_branch | default('master')) }}"
+    url: "{{ user_requirements_git_url | default('http://releases.openstack.org/constraints/upper/' ~ requirements_git_install_branch | default('master')) }}"
     dest: "{{ repo_upper_constraints_path }}/{{ 'upper_constraints_' ~ requirements_git_install_branch | default('master') ~ '.txt' }}"
   when: requirements_git_repo is search('http')
   delegate_to: localhost
